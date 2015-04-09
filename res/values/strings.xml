@@ -11,6 +11,14 @@
     <string name="email">Email</string>
     <string name="search">Search</string>
     <string name="friendMail">friendMail</string>
-     <string name="sendfriendrequest">send friend request</string>
-      <string name="signOut">signOut</string>
+    <string name="sendfriendrequest">send friend request</string>
+    <string name="signOut">signOut</string>
+    <string name="message">message</string>
+    <string name="friend">friend</string>
+    <string name="send">send</string>
+    <string name="sendSingleMsg">sendSingleMsg</string>
+    <string name="chat">chat</string>
+    <string name="friends">friends</string>
+    <string name="messageChat">messageChat</string>
+   
 </resources>

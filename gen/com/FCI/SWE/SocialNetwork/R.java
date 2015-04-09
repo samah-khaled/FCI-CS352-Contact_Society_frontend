@@ -41,6 +41,9 @@ public final class R {
         public static final int signUp=0x7f080007;
         public static final int username=0x7f080003;
         public static final int username_registration=0x7f080008;
+		public static int message;
+		public static int friend;
+		public static int sendButton;
     }
     public static final class layout {
         public static final int activity_accept=0x7f030000;

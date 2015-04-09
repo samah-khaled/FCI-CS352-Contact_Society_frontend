@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.FCI.SWE.Models.UserEntity;
 import com.FCI.SWE.SocialNetwork.HomeActivity;
 import com.FCI.SWE.SocialNetwork.MainActivity;
+import com.FCI.SWE.SocialNetwork.Mssage;
 import com.FCI.SWE.SocialNetwork.SearchActivity;
 public class UserController {
 
@@ -53,7 +54,22 @@ public class UserController {
 	public void sendfriendrequest(String name) {
 		new Connection().execute(
 				"dotted-marking-88320.appspot.com/SendFriendRequest",name,
-				 "SearchService");
+				 "SendFriendRequesthService");
+	}
+	public void AddChatFriend(String ConvID, String FriendMail) {
+		new Connection().execute(
+				"dotted-marking-88320.appspot.com/AddChatFriendService",ConvID,FriendMail,
+				 "AddChatFriendService");
+	}
+	public void SendMessage(String ConVId,String name) {
+		new Connection().execute(
+				"dotted-marking-88320.appspot.com/SendMessageService",name,ConVId,
+				 "SendMessageService");
+	}
+	public void CreatConversationService(String ConvName,String email) {
+		new Connection().execute(
+				"dotted-marking-88320.appspot.com/CreatConversationService",email,ConvName,
+				 "CreatConversationService");
 	}
 	public void signout(){
 		Intent homeIntent = new Intent(Application.getAppContext(),
@@ -62,7 +78,7 @@ public class UserController {
 		
 	}
 	
-	static private class Connection extends AsyncTask<String, String, String> {
+	public static class Connection extends AsyncTask<String, String, String> {
 
 		String serviceType;
 
@@ -173,6 +189,14 @@ public class UserController {
 
 
 				}
+				else if(serviceType.equals("sendSingleMsgActivity")){
+					Intent homeIntent = new Intent(Application.getAppContext(),
+							Mssage.class);
+					homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					Application.getAppContext().startActivity(homeIntent);
+
+
+				}
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -180,6 +204,11 @@ public class UserController {
 			
 		}
 
+	}
+
+	public void sendSingleMsg(String string, String string2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 		
